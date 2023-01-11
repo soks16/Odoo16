@@ -65,6 +65,9 @@
                     <group expand="0" string="Group by">
                         <filter string="Gender" name="group_by_gender" context="{'group_by':'gender'}"/>
                     </group>
+                    <searchpanel>
+                        <field name="gender" enable_counters="1" icon="fa-users" select="multi"/>
+                    </searchpanel>
                 </search>
             </field>
         </record>
