@@ -20,7 +20,7 @@
     'version': '1.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': [],
+    'depends': ['mail'],
 
     # always loaded
     'data': [
