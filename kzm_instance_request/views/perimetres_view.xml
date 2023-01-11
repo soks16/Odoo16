@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="kzm_odoo_intance_list_view">
+            <field name="name">Perimeter list</field>
+            <field name="model">odoo.perimeter</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- explicit form view definition -->
+        <record model="ir.ui.view" id="perimeter_form_view">
+            <field name="name">Perimeter Form</field>
+            <field name="model">odoo.perimeter</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="perimeter_instance_window" model="ir.actions.act_window">
+            <field name="name">Perimeter </field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoo.perimeter</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

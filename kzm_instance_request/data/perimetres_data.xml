@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="odoo_perimeter_1" model="odoo.perimeter">
+            <field name="name">Achats</field>
+        </record>
+        <record id="odoo_perimeter_2" model="odoo.perimeter">
+            <field name="name">Ventes</field>
+        </record>
+        <record id="odoo_perimeter_3" model="odoo.perimeter">
+            <field name="name">Documents</field>
+        </record>
+        <record id="odoo_perimeter_4" model="odoo.perimeter">
+            <field name="name">Projets</field>
+        </record>
+        <record id="odoo_perimeter_5" model="odoo.perimeter">
+            <field name="name">Agriculture</field>
+        </record>
+    </data>
+</odoo>
