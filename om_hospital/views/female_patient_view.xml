@@ -18,7 +18,7 @@
             </field>
         </record>
 
-        <menuitem name="Female Patient"
+        <menuitem name="Female Patients"
                   id="female_menu_patient"
                   action="action_hospital_female_patient"
                   parent="menu_patient_master"
