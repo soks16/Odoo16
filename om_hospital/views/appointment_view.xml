@@ -27,6 +27,7 @@
                                 <field name="patient_id"/>
                                 <field name="gender"/>
                                 <field name="booking_date"/>
+                                <field name="ref"/>
                             </group>
                             <group>
                                 <field name="appointment_time"/>
