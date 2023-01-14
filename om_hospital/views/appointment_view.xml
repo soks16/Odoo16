@@ -8,7 +8,6 @@
                            decoration-danger - orange
                            decoration-warning - light blue -->
 
-
         <record model="ir.ui.view" id="view_hospital_patient_tree">
             <field name="name">hospital.appointment.tree</field>
             <field name="model">hospital.appointment</field>
@@ -18,10 +17,12 @@
                       decoration-info="state == 'draft'"
                       decoration-danger="state == 'cancel'"
                       decoration-warning="state == 'in_consultation'">
-
                     <field name="patient_id"/>
+                    <field name="ref" optional="show"/>
+                    <field name="doctor_id" widget="many2one_avatar_user"/>
+                    <field name="gender" optional="hide"/>
                     <field name="appointment_time"/>
-                    <field name="booking_date"/>
+                    <field name="booking_date" optional="show"/>
                     <field name="activity_ids" widget="list_activity"/>
                     <field name="state"
                            widget="badge"
@@ -56,6 +57,7 @@
                                 <field name="patient_id"/>
                                 <field name="ref"/>
                                 <field name="gender"/>
+                                <field name="doctor_id" widget="many2one_avatar_user"/>
                                 <field name="booking_date"/>
                             </group>
                             <group>

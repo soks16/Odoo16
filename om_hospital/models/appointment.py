@@ -29,6 +29,8 @@ class HospitalAppointment(models.Model):
         ('cancel', 'Cancelled')],
         string='Status', tracking=True)
 
+    doctor_id = fields.Many2one('res.users', string='Doctor')
+
     @api.onchange('patient_id')
     def onchange_patient_id(self):
         for x in self:
