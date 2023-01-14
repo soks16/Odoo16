@@ -40,8 +40,14 @@
                             </group>
                             <group>
                                 <field name="appointment_time"/>
-                                <button string="Object button" class="oe_highlight" type="object" name="action_test"/>
-                                <button string="Action Button" class="oe_highlight" type="action" name="%(om_hospital.action_hospital_patient)d"/>
+                                <button string="Object button"
+                                        confirm="Are you sure to execute python code ?"
+                                        class="oe_highlight" type="object" name="action_test"/>
+                                <button string="Action Button"
+                                        class="oe_highlight"
+                                        confirm="Are you sure to open the patient action ?"
+                                        type="action"
+                                        name="%(om_hospital.action_hospital_patient)d"/>
                             </group>
                         </group>
                         <notebook>
