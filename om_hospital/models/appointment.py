@@ -36,4 +36,11 @@ class HospitalAppointment(models.Model):
     
     def action_test(self):
         print("Button clicked")
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Click Successfull',
+                'type': 'rainbow_man',
+            }
+        }
         
