@@ -33,3 +33,7 @@ class HospitalAppointment(models.Model):
     def onchange_patient_id(self):
         for x in self:
             x.ref = x.patient_id.ref
+    
+    def action_test(self):
+        print("Button clicked")
+        
