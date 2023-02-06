@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem name="Real Estate"
+                  id="menu_estate_property"
+                  sequence="0"/>
+        <!--                  web_icon="om_hospital,static/description/icon.png"-->
+        <menuitem name="Advertisements"
+                  id="menu_s1_estate_property"
+                  parent="estate.menu_estate_property"
+                  sequence="0"/>
+
+        <menuitem name="Settings"
+                  id="menu_estate_property_type"
+                  parent="estate.menu_estate_property"
+                  sequence="0"/>
+
+
+
+    </data>
+</odoo>

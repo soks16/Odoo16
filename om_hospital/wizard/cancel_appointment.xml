@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <data>
+
+        <!-- explicit form view definition -->
+
+        <record model="ir.ui.view" id="view_cancel_appointment_form">
+            <field name="name">cancel.appointment.wizard.form</field>
+            <field name="model">cancel.appointment.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="appointment_id"/>
+                        </group>
+                        <group>
+
+                        </group>
+                        <footer>
+                            <button string="Save" special="save" class="btn-primary"/>
+                            <button string="Discard" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_cancel_appointment">
+            <field name="name">Cancel Appointment Tags</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cancel.appointment.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

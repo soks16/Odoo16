@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="estate_property_search">
+            <field name="name">estate.p.tree</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="date_availability"/>
+                    <field name="postcode"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Provider" name="provider"
+                                context="{'group_by':'postcode'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="estate_property_tree">
+            <field name="name">estate.p.tree</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="postcode"/>
+                    <field name="date_availability"/>
+                    <field name="expected_price"/>
+                    <field name="selling_price"/>
+                    <field name="living_area"/>
+                    <field name="facades"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="estate_property_form">
+            <field name="name">estate.p.form</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name" class="mr-3"/>
+                                </h1>
+                                <field name="property_tag_ids" widget="many2many_tags"/>
+
+                            </div>
+
+                            <group>
+                                <group>
+                                    <field name="property_type_id"/>
+                                    <field name="postcode"/>
+                                    <field name="date_availability"/>
+                                </group>
+                                <group>
+                                    <field name="expected_price"/>
+                                    <field name="best_price"/>
+                                    <field name="selling_price"/>
+                                </group>
+                            </group>
+
+
+                            <notebook>
+                                <page string="Description">
+                                    <group>
+                                        <field name="description"/>
+                                        <field name="bedrooms"/>
+                                        <field name="living_area"/>
+                                        <field name="facades"/>
+                                        <field name="garage"/>
+                                        <field name="garden"/>
+                                        <field name="garden_area"/>
+                                        <field name="garden_orientation"/>
+                                        <field name="total_area"/>
+                                    </group>
+                                </page>
+
+
+                                <page string="Offers" name="name">
+                                    <field name="offer_ids">
+                                        <tree editable="bottom">
+                                            <field name="price"/>
+                                            <field name="partner_id"/>
+                                            <field name="status"/>
+                                        </tree>
+                                    </field>
+                                </page>
+
+                                <page string="Other Info">
+                                    <group>
+                                        <field name="salesman_id"/>
+                                        <field name="partner_id"/>
+                                    </group>
+                                </page>
+
+
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="estate_property_action" model="ir.actions.act_window">
+            <field name="name">Properties</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">estate.property</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Estate"
+                  id="menu_ss1_estate_property"
+                  parent="menu_s1_estate_property"
+                  action="estate.estate_property_action"
+                  sequence="0"/>
+
+    </data>
+</odoo>
