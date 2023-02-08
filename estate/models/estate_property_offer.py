@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 from datetime import timedelta
-
 from odoo import models, fields, api, exceptions
 
 
 class EstatePropertyOffer(models.Model):
     _name = "estate.property.offer"
+    _description = "Estate Property Offer"
 
     price = fields.Float(string="Price")
 
-    status = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused')], string="State", copy=False)
+    status = fields.Selection([('accepted', 'Accepted'), ('refused', 'Refused')], string="Status", copy=False)
 
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
 
@@ -21,9 +21,18 @@ class EstatePropertyOffer(models.Model):
 
     date_deadline = fields.Date(string='Deadline', compute='_compute_date_deadline', inverse='_inverse_date_deadline', default=fields.Date.today)
 
+    def action_validate_sold(self):
+        for rec in self:
+            rec.write({'status': 'accepted'})
+        return True
+
+    def action_invalidate_sold(self):
+        for rec in self:
+            rec.write({'status': 'refused'})
+        return True
+
     @api.depends('create_date', 'validity')
     def _compute_date_deadline(self):
-
         for res in self:
             if res.create_date and res.validity:
                 res.date_deadline = res.create_date + timedelta(days=res.validity)

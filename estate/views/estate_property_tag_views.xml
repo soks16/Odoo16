@@ -19,10 +19,5 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Property Tag"
-                  id="menu_ss3_estate_property"
-                  parent="estate.menu_estate_property_type"
-                  action="estate_property_tag_action"/>
-
     </data>
 </odoo>

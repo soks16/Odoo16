@@ -18,11 +18,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Property Types"
-                  id="menu_ss2_estate_property"
-                  parent="estate.menu_estate_property_type"
-                  action="estate_property_type_action"
-                  />
+
 
     </data>
 </odoo>

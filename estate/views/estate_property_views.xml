@@ -8,13 +8,16 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="name"/>
-                    <field name="date_availability"/>
                     <field name="postcode"/>
+                    <field name="expected_price"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area"/>
+                    <field name="facades"/>
                     <separator/>
-                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <filter string="Available" name="inactive" domain="[('active', '=', False)]"/>
                     <group expand="1" string="Group By">
-                        <filter string="Provider" name="provider"
-                                context="{'group_by':'postcode'}"/>
+                        <filter string="Postcode" name="postcode"
+                                context="{'group_by':'postcode', 'residual_visible':True}"/>
                     </group>
                 </search>
             </field>
@@ -26,13 +29,12 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="description"/>
                     <field name="postcode"/>
-                    <field name="date_availability"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area"/>
                     <field name="expected_price"/>
                     <field name="selling_price"/>
-                    <field name="living_area"/>
-                    <field name="facades"/>
+                    <field name="date_availability"/>
                 </tree>
             </field>
         </record>
@@ -90,25 +92,42 @@
 
                                 <page string="Offers" name="name">
                                     <field name="offer_ids">
-                                        <tree>
+                                        <tree editable="bottom">
                                             <field name="price"/>
                                             <field name="partner_id"/>
                                             <field name="validity"/>
                                             <field name="date_deadline"/>
+
+                                            <button name="action_validate_sold"
+                                                    icon="fa-check"
+                                                    string=" "
+                                                    type="object"/>
+
+                                            <button name="action_invalidate_sold"
+                                                    icon="fa-times"
+                                                    string=" "
+                                                    type="object"/>
+
+                                            <field name="status"
+                                                   decoration-success="status == 'accepted'"
+                                                   decoration-danger="status == 'refused'"
+                                                   widget="badge"/>
+
                                         </tree>
-                                        <form>
-                                            <header>
-                                                <field name="status" widget="statusbar"/>
-                                            </header>
-                                            <sheet>
-                                                <group>
-                                                    <field name="price"/>
-                                                    <field name="partner_id"/>
-                                                    <field name="validity"/>
-                                                    <field name="date_deadline"/>
-                                                </group>
-                                            </sheet>
-                                        </form>
+                                        <!--                                        <form>-->
+                                        <!--                                            <header>-->
+                                        <!--                                                <field name="status" widget="statusbar"/>-->
+                                        <!--                                            </header>-->
+                                        <!--                                            <sheet>-->
+                                        <!--                                                <group>-->
+                                        <!--                                                    <field name="price"/>-->
+                                        <!--                                                    <field name="partner_id"/>-->
+                                        <!--                                                    <field name="validity"/>-->
+
+                                        <!--                                                    <field name="date_deadline"/>-->
+                                        <!--                                                </group>-->
+                                        <!--                                            </sheet>-->
+                                        <!--                                        </form>-->
                                     </field>
                                 </page>
 
@@ -132,11 +151,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Estate"
-                  id="menu_ss1_estate_property"
-                  parent="menu_s1_estate_property"
-                  action="estate.estate_property_action"
-                  sequence="0"/>
+
 
     </data>
 </odoo>

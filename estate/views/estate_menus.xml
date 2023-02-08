@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-        <menuitem name="Real Estate"
-                  id="menu_estate_property"
-                  sequence="0"/>
-        <!--                  web_icon="om_hospital,static/description/icon.png"-->
-        <menuitem name="Advertisements"
-                  id="menu_s1_estate_property"
-                  parent="estate.menu_estate_property"
-                  sequence="0"/>
+        <menuitem id="menu_estate_property" name="Real Estate" web_icon="estate,static/description/icon.png">
 
-        <menuitem name="Settings"
-                  id="menu_estate_property_type"
-                  parent="estate.menu_estate_property"
-                  sequence="0"/>
+            <menuitem id="menu_s1_estate_property" name="Advertisements">
+                <menuitem name="Estate" id="menu_ss1_estate_property" action="estate.estate_property_action"/>
+            </menuitem>
 
+            <menuitem id="menu_s2_estate_property" name="Settings">
+                <menuitem name="Property Types" id="menu_estate_property_type_1" action="estate.estate_property_type_action"/>
+                <menuitem name="Property Tag" id="menu_estate_property_type_2" action="estate.estate_property_tag_action"/>
+            </menuitem>
 
-
+        </menuitem>
     </data>
 </odoo>
