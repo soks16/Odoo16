@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.ui.view" id="agence_salle_list">
+        <field name="name">Salles list</field>
+        <field name="model">agence.salle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="isactif"/>
+                <field name="nbplaces"/>
+                <field name="prix_location"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="agence_salle_form">
+        <field name="name">Salles form</field>
+        <field name="model">agence.salle</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="isactif"/>
+                            <field name="nbplaces"/>
+                        </group>
+                        <group>
+                            <field name="prix_location"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action pour ouvrir la liste des salles  -->
+    <record model="ir.actions.act_window" id="action_agence_salle">
+        <field name="name">Gestion des Salles</field>
+        <field name="res_model">agence.salle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="agence_bureau_list">
+        <field name="name">bureau list</field>
+        <field name="model">agence.bureau</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="isactif"/>
+                <field name="surface"/>
+                <field name="prix_location"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="agence_bureau_form">
+        <field name="name">bureau form</field>
+        <field name="model">agence.bureau</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="isactif"/>
+                            <field name="surface"/>
+                        </group>
+                        <group>
+                            <field name="prix_location"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action  pour ouvrir la liste des Bureau -->
+    <record model="ir.actions.act_window" id="action_agence_bureau">
+        <field name="name">Gestion des Bureaux</field>
+        <field name="res_model">agence.bureau</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

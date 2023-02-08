@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- LE Menu d'Agence  -->
+    <menuitem id="menu_agence"
+              web_icon="location_app,static/description/icon.png"
+              name="Agence"/>
+
+    <!-- L'Option du Menu pour ouvrir la liste des Salles  -->
+    <menuitem id="menu_agence_salle"
+              name="Salles"
+              parent="menu_agence"
+              action="action_agence_salle"/>
+
+    <!-- L'Option du Menu pour ouvrir la liste des Bureaux  -->
+    <menuitem id="menu_agence_bureau"
+              name="Bureaux"
+              parent="menu_agence"
+              action="action_agence_bureau"/>
+
+</odoo>
